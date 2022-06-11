@@ -152,7 +152,10 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Element.cpp" />
+    <ClCompile Include="Grid.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Sand.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\SDL_image.h" />
