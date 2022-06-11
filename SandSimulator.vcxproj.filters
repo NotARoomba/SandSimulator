@@ -33,10 +33,10 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Element.cpp">
+    <ClCompile Include="Element.h">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Sand.cpp">
+    <ClCompile Include="Sand.h">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Grid.cpp">
