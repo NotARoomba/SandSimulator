@@ -6,12 +6,14 @@
 		int x, y;
 		int r, g, b;
 		bool isMoveable = false;
+		bool drawable = false;
+		Element(int _x, int _y) {
+			x = _x;
+			y = _y;
+			r = 0;
+			g = 0;
+			b = 0;
+		};
 		Element() {};
 		virtual void move(std::vector<std::vector<Element>> grid) {};
-		void draw(SDL_Renderer* renderer) {
-			SDL_SetRenderDrawColor(renderer, r, g, b, 255);
-			SDL_Rect rect = { x, y, 10, 10 };
-			SDL_RenderFillRect(renderer, &rect);
-		}
-
 	};
