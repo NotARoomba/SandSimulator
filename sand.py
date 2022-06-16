@@ -1,9 +1,12 @@
 from element import *
+
+
 class Sand(Element):
-    def  __init__(self, x, y):
+    def __init__(self, x, y):
         super().__init__(x, y)
         self.type = SAND
-    def canMove(self, pixels):
+
+    def can_move(self, pixels):
         if self.y + 1 < len(pixels[0]):
             if pixels[self.x][self.y + 1].type == VOID:
                 return True, 0, 1
