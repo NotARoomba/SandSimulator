@@ -1,15 +1,18 @@
 import random
-class water:
+
+
+class Water:
+    type = 2
+    color = (0, 0, 255)
+
     def __init__(self, x, y):
         self.x = x
         self.y = y
-        self.type = 2
-        self.color = (0,0,255)
         self.frame = 0
         self.static = False
-        return None
-    def canMove(self, pixels):
-        #water has a farther movement range than sand
+
+    def can_move(self, pixels):
+        # water has a farther movement range than sand
         if self.y + 1 < len(pixels[0]):
             if pixels[self.x][self.y + 1] == 0:
                 return True, 0, 1
@@ -32,22 +35,23 @@ class water:
                 elif self.x + 1 < len(pixels) and pixels[self.x + 1][self.y] == 0:
                     return True, 1, 0
         return False, 0, 0
+
     def move(self, pixels, frame):
-        moveable, x, y = self.canMove(pixels)
+        movable, x, y = self.can_move(pixels)
         if self.frame == frame:
             return
-        if moveable:
+        if movable:
             for a in range(self.x - 1, self.x + 2):
                 for b in range(self.y - 1, self.y + 2):
-                    if a > 0 and a < len(pixels) and b > 0 and b < len(pixels[0]):
+                    if 0 < a < len(pixels) and 0 < b < len(pixels[0]):
                         if pixels[a][b] != 0:
-                            if pixels[a][b].static == True:
+                            if pixels[a][b].static:
                                 pixels[a][b].static = False
             self.x += x
             self.y += y
             self.frame = frame
             pixels[self.x][self.y] = self
             pixels[self.x - x][self.y - y] = 0
-    def draw(self, pg, screen):
-        pg.draw.rect(screen, self.color, (self.x, self.y, 1, 1))
 
+    def draw(self, pg, screen):
+        pg.draw.rect(screen, Water.color, (self.x, self.y, 1, 1))
