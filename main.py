@@ -1,5 +1,5 @@
 import pygame as pg
-from element import Element, VOID, bresenham, circle
+from element import METAL, Element, VOID, bresenham, circle
 from sand import Sand
 from water import Water
 from metal import Metal
@@ -60,7 +60,7 @@ def main():
 def move(resolution, pixels, frame):
     for x in range(resolution[0] - 1, -1, -1):
         for y in range(resolution[1] - 1, -1, -1):
-            if pixels[x][y].type != VOID:
+            if pixels[x][y].type != VOID or pixels[x][y].type != METAL:
                 pixels[x][y].move(pixels, frame)
 
 
